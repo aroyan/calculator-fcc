@@ -1,30 +1,23 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import Calculator from './Calculator';
+import { ChakraProvider, Container, Heading } from '@chakra-ui/react';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [code, setCode] = useState('Press')
-
-  const handleKeyPress = (e) => {
-    setCode(e.code)
-  }
-
-  useEffect(() => {
-    document.addEventListener('keypress', handleKeyPress)
-  })
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={() => setCount(count + 1)}>Increment</button>
-        <button onClick={() => setCount(count - 1)}>Decrement</button>
-        <button onClick={() => setCount(0)}>Reset</button>
-        <p>{count}</p>
-        <h2>Key Code</h2>
-        <p>{code}</p>
-      </header>
-    </div>
-  )
+    <ChakraProvider>
+      <Container
+        className="App"
+        minW={'full'}
+        minH={'100vh'}
+        bg={'black'}
+        color={'white'}
+      >
+        <Heading as={'h1'} textAlign={'center'} pt={'10'}>
+          Calculator
+        </Heading>
+        <Calculator />
+      </Container>
+    </ChakraProvider>
+  );
 }
 
-export default App
+export default App;
