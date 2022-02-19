@@ -11,7 +11,7 @@ function App() {
         bg={'black'}
         color={'white'}
       >
-        <Heading as={'h1'} textAlign={'center'} pt={'10'}>
+        <Heading as={'h1'} textAlign={'center'} p={'10'}>
           Calculator
         </Heading>
         <Calculator />
