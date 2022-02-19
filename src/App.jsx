@@ -1,5 +1,6 @@
-import Calculator from './Calculator';
+// import Calculator from './Calculator';
 import { ChakraProvider, Container, Heading } from '@chakra-ui/react';
+import Key from './Key';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Heading as={'h1'} textAlign={'center'} p={'10'}>
           Calculator
         </Heading>
-        <Calculator />
+        <Key />
+        {/* <Calculator /> */}
       </Container>
     </ChakraProvider>
   );
