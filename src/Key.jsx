@@ -15,13 +15,26 @@ const arrayOfNumbers = [
 ];
 
 export default function Key() {
-  const [input, setInput] = useState(0);
-  const [savedInput, setSavedInput] = useState([0]);
+  const [input, setInput] = useState(['']);
+  const [savedInput, setSavedInput] = useState();
+  const [result, setResult] = useState();
 
   function handleClick(e) {
-    // setInput((arr) => [...arr, e.target.textContent]);
-    setInput(e.target.textContent);
-    setSavedInput((arr) => [...arr, input]);
+    setInput((arr) => [...arr, e.target.textContent]);
+    // setInput(e.target.textContent);
+  }
+
+  // when operator is clicked, save input to other state and reset input
+
+  function handleAdd(e) {
+    setSavedInput(input);
+    setInput('');
+  }
+
+  function handleEquals(e) {
+    console.log(savedInput.join(''));
+    console.log(input.join(''));
+    setResult(savedInput.join('') + input.join(''));
   }
 
   // useEffect(() => {
@@ -53,15 +66,44 @@ export default function Key() {
 
   return (
     <Flex align={'center'} justify={'center'} flexDir={'column'}>
-      <Heading as={'h2'} margin={'8'}>
+      <Heading as={'h6'} margin={'8'}>
         {input}
       </Heading>
-      <Heading as={'h2'} margin={'8'} color={'yellow'}>
-        {savedInput.reduce((prev, curr) => prev + curr)}
+      <Heading as={'h6'} margin={'8'} color={'yellow'}>
+        {savedInput}
+      </Heading>
+      <Heading as={'h6'} margin={'8'} color={'green'}>
+        {result}
       </Heading>
       <Flex align={'center'} justify={'center'} id={'number-display'}>
         {renderedNumber}
       </Flex>
+      <Box
+        id="add"
+        bg={'indigo'}
+        w={'50px'}
+        h={'50px'}
+        p={'3'}
+        textAlign={'center'}
+        cursor={'pointer'}
+        userSelect={'none'}
+        onClick={handleAdd}
+      >
+        +
+      </Box>
+      <Box
+        id="add"
+        bg={'indigo'}
+        w={'50px'}
+        h={'50px'}
+        p={'3'}
+        textAlign={'center'}
+        cursor={'pointer'}
+        userSelect={'none'}
+        onClick={handleEquals}
+      >
+        =
+      </Box>
     </Flex>
   );
 }
