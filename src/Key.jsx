@@ -70,7 +70,7 @@ export default function Key() {
       <Heading as={'h6'} margin={'8'} color={'yellow'}>
         {savedInput}
       </Heading>
-      <Heading as={'h6'} margin={'8'} color={'green'}>
+      <Heading as={'h6'} margin={'8'} color={'cyan'}>
         {result}
       </Heading>
       <Flex align={'center'} justify={'center'} id={'number-display'}>
