@@ -1,5 +1,5 @@
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
+import { useState } from 'react';
 
 const arrayOfNumbers = [
   { uid: 'satu', id: 'one', value: 1, display: '1' },
@@ -34,14 +34,6 @@ export default function Key() {
   function handleEquals(e) {
     setResult(parseInt(savedInput) + parseInt(input));
   }
-
-  // useEffect(() => {
-  //   const numberDisplay = document.getElementById('number-display');
-  //   numberDisplay.addEventListener('click', handleClick);
-  //   return () => {
-  //     numberDisplay.removeEventListener('click', handleClick);
-  //   };
-  // });
 
   let renderedNumber = arrayOfNumbers.map((num) => {
     return (
