@@ -15,13 +15,13 @@ const arrayOfNumbers = [
 ];
 
 export default function Key() {
-  const [input, setInput] = useState(['']);
+  const [input, setInput] = useState(0);
   const [savedInput, setSavedInput] = useState();
   const [result, setResult] = useState();
 
   function handleClick(e) {
-    setInput((arr) => [...arr, e.target.textContent]);
-    // setInput(e.target.textContent);
+    // setInput((arr) => [...arr, e.target.textContent]);
+    setInput(input + e.target.textContent);
   }
 
   // when operator is clicked, save input to other state and reset input
@@ -32,9 +32,7 @@ export default function Key() {
   }
 
   function handleEquals(e) {
-    console.log(savedInput.join(''));
-    console.log(input.join(''));
-    setResult(savedInput.join('') + input.join(''));
+    setResult(parseInt(savedInput) + parseInt(input));
   }
 
   // useEffect(() => {
