@@ -1,6 +1,9 @@
-// import Calculator from './Calculator';
 import { ChakraProvider, Container, Heading } from '@chakra-ui/react';
-import Key from './Key';
+// import HooksReducer from './HooksReducer';
+// import Calculator from './Calculator';
+// import Key from './Key';
+// import Free from './Free';
+import Kalkulator from './Kalkulator';
 
 function App() {
   return (
@@ -15,8 +18,11 @@ function App() {
         <Heading as={'h1'} textAlign={'center'} p={'10'}>
           Calculator
         </Heading>
-        <Key />
+        {/* <HooksReducer /> */}
+        <Kalkulator />
+        {/* <Key /> */}
         {/* <Calculator /> */}
+        {/* <Free /> */}
       </Container>
     </ChakraProvider>
   );

@@ -101,3 +101,5 @@ export default function Key() {
 //todo
 //https://thewebdev.info/2021/03/20/how-to-get-the-id-of-the-clicked-element-in-the-javascript-click-handler/
 //https://www.techiediaries.com/react-usestate-hook-update-array/
+
+//state current number, prevNumber, formula
