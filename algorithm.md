@@ -1,1 +1,0 @@
-- Previous state, current state, formula state
