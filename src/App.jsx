@@ -1,4 +1,5 @@
 import { ChakraProvider, Container } from "@chakra-ui/react";
+// import Free from "./Free";
 import Kalkulator from "./Kalkulator";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         bg={"black"}
         color={"white"}
       >
+        {/* <Free /> */}
         <Kalkulator />
       </Container>
     </ChakraProvider>

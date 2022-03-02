@@ -7,9 +7,7 @@ export default function Kalkulator() {
   const [currentVal, setCurrentVal] = useState("0");
   const [prevVal, setPrevVal] = useState("0");
   const [formula, setFormula] = useState("");
-  const [currentSign, setCurrentSign] = useState("pos");
-  const [lastClicked, setLastClicked] = useState("");
-  const [evaluated, setEvaluated] = useState(false);
+  const [evaluated, setEvaluated] = useState("0");
 
   function handleOperators(e) {
     if (prevVal[prevVal.length - 1].match(endWithOperators)) {
@@ -22,11 +20,16 @@ export default function Kalkulator() {
 
   function handleEvaluate() {
     setEvaluated(eval(prevVal));
+    setCurrentVal(prevVal);
     setPrevVal("");
   }
 
-  function handleDecimal() {
-    //code
+  function handleDecimal(e) {
+    if (prevVal.includes(".")) {
+      setPrevVal(prevVal);
+    } else {
+      setPrevVal(prevVal + e.target.value);
+    }
   }
 
   function handleNumbers(e) {
@@ -58,13 +61,10 @@ export default function Kalkulator() {
       <Heading as={"h2"} color={"white"} mb={"4"}>
         {currentVal}
       </Heading>
-      <Heading as={"h2"} color={"orange"} mb={"4"}>
-        {formula}
-      </Heading>
       <Heading as={"h2"} color={"yellow"} mb={"4"}>
         {prevVal}
       </Heading>
-      <Heading as={"h2"} color={"green"} mb={"4"}>
+      <Heading as={"h2"} color={"green"} mb={"4"} id={"display"}>
         {evaluated}
       </Heading>
       <Button onClick={handleNumbers} value={"1"} id={"one"}>
@@ -97,7 +97,7 @@ export default function Kalkulator() {
       <Button onClick={handleNumbers} value={"0"} id={"zero"}>
         0
       </Button>
-      <Button onClick={handleNumbers} value={"."} id={"decimal"}>
+      <Button onClick={handleDecimal} value={"."} id={"decimal"}>
         .
       </Button>
       <br />
