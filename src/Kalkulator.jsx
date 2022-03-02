@@ -2,26 +2,28 @@ import { Box, Button, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 const endWithOperators = /[-=/+*]$/;
+const endsWithNegativeSign = /\d[x/+-]{1}-$/;
 
 export default function Kalkulator() {
   const [currentVal, setCurrentVal] = useState("0");
   const [prevVal, setPrevVal] = useState("0");
   const [formula, setFormula] = useState("");
-  const [evaluated, setEvaluated] = useState("0");
+  const [evaluated, setEvaluated] = useState("");
 
   function handleOperators(e) {
     if (prevVal[prevVal.length - 1].match(endWithOperators)) {
       setPrevVal(prevVal.replace(endWithOperators, e.target.value));
     } else {
-      setPrevVal(prevVal + e.target.value);
       setFormula(e.target.value);
+      setPrevVal(prevVal + e.target.value);
+      setCurrentVal(currentVal + e.target.value);
     }
   }
 
-  function handleEvaluate() {
-    setEvaluated(eval(prevVal));
-    setCurrentVal(prevVal);
-    setPrevVal("");
+  function handleEvaluate(e) {
+    setPrevVal(eval(prevVal));
+    setCurrentVal(prevVal + e.target.value);
+    // setPrevVal("");
   }
 
   function handleDecimal(e) {
@@ -37,9 +39,10 @@ export default function Kalkulator() {
       setPrevVal(prevVal);
     } else if (prevVal[0] === "0") {
       setPrevVal(prevVal.substring(1) + e.target.value);
+      setCurrentVal(prevVal.substring(1) + e.target.value);
     } else {
       setPrevVal(prevVal + e.target.value);
-      setCurrentVal(e.target.value);
+      setCurrentVal(currentVal + e.target.value);
     }
   }
 
@@ -48,8 +51,6 @@ export default function Kalkulator() {
     setCurrentVal("0");
     setPrevVal("0");
     setFormula("");
-    setCurrentSign("pos");
-    setLastClicked("");
     setEvaluated(false);
   }
 
@@ -59,13 +60,11 @@ export default function Kalkulator() {
         Setup
       </Heading>
       <Heading as={"h2"} color={"white"} mb={"4"}>
+        Current Value <br />
         {currentVal}
       </Heading>
-      <Heading as={"h2"} color={"yellow"} mb={"4"}>
+      <Heading as={"h2"} color={"yellow"} mb={"4"} id="display">
         {prevVal}
-      </Heading>
-      <Heading as={"h2"} color={"green"} mb={"4"} id={"display"}>
-        {evaluated}
       </Heading>
       <Button onClick={handleNumbers} value={"1"} id={"one"}>
         1
