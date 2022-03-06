@@ -1,6 +1,7 @@
 import { ChakraProvider, Container } from "@chakra-ui/react";
 // import Free from "./Free";
 import Kalkulator from "./Kalkulator";
+import Reducer from "./Reducer";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         color={"white"}
       >
         {/* <Free /> */}
-        <Kalkulator />
+        {/* <Kalkulator /> */}
+        <Reducer />
       </Container>
     </ChakraProvider>
   );
