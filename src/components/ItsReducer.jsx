@@ -15,7 +15,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Reducer() {
+export default function ItsReducer() {
   const [state, dispatch] = useReducer(reducer, initialCount);
   return (
     <div>
