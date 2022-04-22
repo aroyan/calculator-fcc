@@ -1,5 +1,6 @@
 import { Box, Button, Center, Grid, GridItem } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react ";
+import ToggleDarkMode from "./components/ToggleMode";
 import Display from "./Display";
 
 const calculatorData = [
@@ -196,6 +197,9 @@ function App() {
 
   return (
     <Center className="container" w={"full"} h={"100vh"}>
+      <Box position={"fixed"} top={"0"} right={"0"} p={"4"}>
+        <ToggleDarkMode />
+      </Box>
       <Box className="calculator" bg={"Background"} p={"4"} borderRadius={"xl"}>
         <Display input={input} output={output} />
         <ButtonKeys handleInput={handleInput} />
