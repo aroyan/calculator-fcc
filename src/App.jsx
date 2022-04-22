@@ -1,4 +1,4 @@
-import { Button, Center, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Button, Center, Grid, GridItem } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react ";
 import Display from "./Display";
 
@@ -196,10 +196,10 @@ function App() {
 
   return (
     <Center className="container" w={"full"} h={"100vh"}>
-      <div className="calculator">
+      <Box className="calculator" bg={"Background"} p={"4"} borderRadius={"xl"}>
         <Display input={input} output={output} />
         <ButtonKeys handleInput={handleInput} />
-      </div>
+      </Box>
     </Center>
   );
 }
